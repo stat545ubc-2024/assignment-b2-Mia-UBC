@@ -2,11 +2,12 @@ Package: totalsummaryfunction
 Title: Create A Detailed Summary Table For A Variable
 Version: 0.0.0.9000
 Authors@R: 
-    person("Mia", "Simmons", , "miasi@student,ubc.ca", role = c("aut", "cre"))
+    person("Mia", "Simmons", , "miasi@student.ubc.ca", role = c("aut", "cre"))
 Description: Create a detailed summary table for a variable. This table includes the mean, range, minimum, first quartile, median, third quartile, and maximum values for the variable. This can be grouped if desired.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Imports: 
-    dplyr
+    dplyr,
+    stats

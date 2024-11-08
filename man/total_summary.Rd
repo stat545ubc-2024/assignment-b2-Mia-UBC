@@ -21,3 +21,9 @@ A table
 \description{
 Creates a table of summary statistics for a variable. These summary statistics are the mean, range, minimum, first quartile, median, third quartile, and maximum values of the variable.
 }
+\examples{
+data <- data.frame(
+  colour = rep(c("Red", "Blue", "Yellow"), each = 5),
+  number = rnorm(15))
+total_summary(data, colour, summ_var = number)
+}

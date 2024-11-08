@@ -12,19 +12,22 @@
 #' @export
 #'
 #' @examples
-#'
+#' data <- data.frame(
+#'   colour = rep(c("Red", "Blue", "Yellow"), each = 5),
+#'   number = rnorm(15))
+#' total_summary(data, colour, summ_var = number)
 
 total_summary <- function(data, ..., summ_var, na.rm = FALSE) {
   if(!is.numeric(data[[deparse(substitute(summ_var))]])) {
     stop("Sorry, this function only works for numeric variables.")
   }
-  data %>%
-    group_by(...) %>%
-    summarize(mean = mean({{summ_var}}, na.rm = na.rm),
+  data |>
+    dplyr::group_by(...) |>
+    dplyr::summarize(mean = mean({{summ_var}}, na.rm = na.rm),
               range = max({{summ_var}}, na.rm = na.rm) - min({{summ_var}}, na.rm = na.rm),
               min = min({{summ_var}}, na.rm = na.rm),
-              first_quartile = quantile({{summ_var}}, 0.25, na.rm = na.rm),
+              first_quartile = stats::quantile({{summ_var}}, 0.25, na.rm = na.rm),
               median = stats::median({{summ_var}}, na.rm = na.rm),
-              third_quartile = quantile({{summ_var}}, 0.75, na.rm = na.rm),
+              third_quartile = stats::quantile({{summ_var}}, 0.75, na.rm = na.rm),
               max = max({{summ_var}}, na.rm = na.rm))
 }
