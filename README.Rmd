@@ -33,5 +33,15 @@ This is a basic example which shows you how to solve a common problem:
 
 ```{r example}
 library(totalsummaryfunction)
-## basic example code
+
+# dataframe for example
+
+data <- data.frame(
+  colour = rep(c("Red", "Blue", "Yellow"), each = 5),
+  number = rnorm(15))
+
+# quick example
+
+total_summary(data, colour, summ_var = number)
+
 ```

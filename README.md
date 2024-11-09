@@ -29,5 +29,20 @@ This is a basic example which shows you how to solve a common problem:
 
 ``` r
 library(totalsummaryfunction)
-## basic example code
+
+# dataframe for example
+
+data <- data.frame(
+  colour = rep(c("Red", "Blue", "Yellow"), each = 5),
+  number = rnorm(15))
+
+# quick example
+
+total_summary(data, colour, summ_var = number)
+#> # A tibble: 3 × 8
+#>   colour    mean range     min first_quartile  median third_quartile   max
+#>   <chr>    <dbl> <dbl>   <dbl>          <dbl>   <dbl>          <dbl> <dbl>
+#> 1 Blue    0.0644  2.44 -0.987          -0.341 -0.0266         0.225  1.45 
+#> 2 Red     1.13    2.19  0.0356          0.658  1.23           1.50   2.23 
+#> 3 Yellow -0.509   2.09 -1.36           -1.31  -0.668          0.0569 0.732
 ```
